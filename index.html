@@ -8,10 +8,17 @@
 <body>
 	<div class='container'>
 		<h1><span id="location">0.0, 0.0</span></h1>
-		<button type="button" class="btn btn-primary">Previous Day</button>
-		<button type="button" class="btn btn-primary">Today</button>
-		<button type="button" class="btn btn-primary">Next Day</button>
+		<div>
+			<p>temperature</p> <p id="temperature"> 0</p>
+			<p>date</p> <p id="time">0</p>
+			<p>Precip Probability</p> <p id="precipProbability">0</p>
+			<p>summary</p> <p id="summary">0</p>
+		</div>
+		<button type="button" onclick="onPrevDayClick()">Previous Day</button>
+		<button type="button" onclick="onTodayClick()">Today</button>
+		<button type="button" onclick="onNextDayClick()">Next Day</button>
 	</div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>
