@@ -82,6 +82,8 @@ var addGoogleMapsJs = function() {
 	var jsElem = document.createElement('script');
 	jsElem.src = url;
 	document.body.appendChild(jsElem);
+	
+	addDarkskyNetJs();	
 }
 
 var updateWeather = function() {
@@ -123,5 +125,4 @@ var onTodayClick = function() {
 }
 
 navigator.geolocation.getCurrentPosition(updateLocation);
-addDarkskyNetJs();
 
