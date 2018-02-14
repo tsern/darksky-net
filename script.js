@@ -1,9 +1,9 @@
-var Weather = function(time, temperatureLow, temperatureHigh, precipProbability, summary) {
+var Weather = function(time, temperatureLow, temperatureHigh, humidity, icon) {
 	this.time = time;
 	this.temperatureHigh = temperatureHigh;
 	this.temperatureLow = temperatureLow;
-	this.precipProbability = precipProbability;
-	this.summary = summary;
+	this.humidity = humidity;
+	this.icon = icon;
 };
 
 var forecast = new Array();
@@ -23,11 +23,12 @@ var populateForecast = function(response) {
 		var temperatureHighF = child.temperatureHigh;
 		var temperatureHighC = fToC(temperatureHighF);
 		temperatureHighC  = Math.round(temperatureHighC);
-		var temperatureLow = child.temperatureLow;
-		var summary = child.precipType;
-		var precipProbability = child.precipProbability;
+		var temperatureLowF = child.temperatureLow;
+		var temperatureLowC = fToC(temperatureLowF);
+		var icon = child.icon;
+		var humidity = child.humidity * 100 + '%';
 		
-		var weather = new Weather(formatDate, temperatureLow, temperatureHighC, precipProbability, summary);
+		var weather = new Weather(formatDate, temperatureLowC, temperatureHighC, humidity, icon);
 		
 		forecast.push(weather);
 	});
@@ -38,7 +39,7 @@ var populateForecast = function(response) {
 var fToC = function(fahrenheit) 
 {
   var fToCel = (fahrenheit - 32) * 5 / 9;
-  return fToCel;
+  return fToCel.toFixed(0);
 } 
 
 var updateLocation = function(location) {
@@ -87,17 +88,46 @@ var addGoogleMapsJs = function() {
 }
 
 var updateWeather = function() {
-	var temperature = document.getElementById('temperature');
-	temperature.innerHTML = forecast[curDay].temperatureHigh;
+	var temperatureHigh = document.getElementById('temperatureHigh');
+	temperatureHigh.innerHTML = forecast[curDay].temperatureHigh+'°C';
+	
+	var temperatureLow = document.getElementById('temperatureLow');
+	temperatureLow.innerHTML = forecast[curDay].temperatureLow+'°C';
 	
 	var time = document.getElementById('time');
 	time.innerHTML = forecast[curDay].time;
 	
-	var precipProbability = document.getElementById('precipProbability');
-	precipProbability.innerHTML = forecast[curDay].precipProbability;
+	var humidity = document.getElementById('humidity');
+	humidity.innerHTML = forecast[curDay].humidity;
 	
-	var summary = document.getElementById('summary');
-	summary.innerHTML = forecast[curDay].summary;
+	var iconEl = document.getElementById('icon');
+	switch (forecast[curDay].icon) {
+	case 'clear-day':
+		iconEl.src = 'img/clear-day.png';
+		break;
+	case 'clear-night':
+		iconEl.src = 'img/clear-night.png';
+		break;
+	case 'fog':
+		iconEl.src = 'img/fog.png';
+		break;
+	case 'cloudy':
+		iconEl.src = 'img/cloudy.png';
+		break;
+	case 'snow':
+		iconEl.src = 'img/snow.png';
+		break;
+	case 'party-cloudy-day':
+		iconEl.src = 'img/party-cloudy-day.png';
+		break;
+	case 'wind':
+		iconEl.src = 'img/wind.png';
+		break;
+	case 'sleet':
+		iconEl.src = 'img/sleet.png';
+		break;
+	}
+		   
 }
 
 var onPrevDayClick = function() {

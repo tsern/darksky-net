@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <title>Homework</title>
 </head>
 <body>
-	<div class='container'>
-		<h1><span id="location">0.0, 0.0</span></h1>
-		<div>
-			<p>temperature</p> <p id="temperature"> 0</p>
-			<p>date</p> <p id="time">0</p>
-			<p>Precip Probability</p> <p id="precipProbability">0</p>
-			<p>summary</p> <p id="summary">0</p>
+	<div class="container">
+		<div class="icon-container">
+			<img src id="icon">
 		</div>
-		<button type="button" onclick="onPrevDayClick()">Previous Day</button>
-		<button type="button" onclick="onTodayClick()">Today</button>
-		<button type="button" onclick="onNextDayClick()">Next Day</button>
+		<div class="weather-info">
+			<div class="city">
+				<img class="info-icon" src="img/location.png">
+				<p id="location" class="info-text">0.0, 0.0</p>
+			</div>
+			<div class="temp-max">
+				<img class="info-icon" src="img/maxTemp.png">
+				<p id="temperatureHigh" class="info-text">0&deg;</p>
+			</div>
+			<div class="temp-min">
+				<img class="info-icon" src="img/minTemp.png">
+				<p id="temperatureLow" class="info-text">0&deg;</p>
+			</div>
+			<div class="date">
+				<img class="info-icon" src="img/Calendar.png">
+				<p id="time" class="info-text">0</p>
+			</div>
+			<div class="humidity">
+				<img class="info-icon" src="img/humidity.png">
+				<p id="humidity" class="info-text">0</p>
+			</div>
+		</div>
+		<div id="buttons-container">
+			<button type="button" onclick="onPrevDayClick()">Previous Day</button>
+			<button type="button" onclick="onTodayClick()">Today</button>
+			<button type="button" onclick="onNextDayClick()">Next Day</button>
+		</div>
 	</div>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>

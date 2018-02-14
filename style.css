@@ -1,3 +1,72 @@
+body {
+	background-color: #f2f2f2;
+	font-size: 25px;
+	color: #555;
+	margin-top: 5px;
+	font-family: 'Lobster', cursive;
+}
+
 .container {
-	width: 500px;
+	position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    margin: auto;
+	width: 600px;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+  	flex: auto;
+}
+
+.icon-container {
+   	width: 40%;
+	height: auto;
+}
+
+#icon {
+	width: 200px;
+	height: 200px;
+	padding-top: 100px;
+}
+
+#location {
+	font-weight: bold;
+}
+
+.weather-info {
+	width: 60%;
+	height: auto;
+	
+	display: block;
+    flex: auto;
+    flex-flow: row wrap;
+}
+
+.info-icon {
+	width: 35px;
+	height: 35px;
+	display: inline-block; 
+	vertical-align: middle;
+}
+
+.info-text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+button {
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+	border: 1px solid #7a7b7e; 
+    width: 120px; 
+    height: 50px; 
+    border-radius: 5px;
+	font-size: 17px;
+}
+
+button:hover {
+    background-color: dimgrey; 
+    color: white;
+	
 }
